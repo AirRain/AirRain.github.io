@@ -5,16 +5,16 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="scp拷贝文件夹遇到的问题 软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。  从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3 是将机器ccp上/test1/ftest2">
+  <meta name="description" content="scp命令拷贝虚拟机中内容导致软链失效标签（空格分隔）： Linux  在此处软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3是将机器ccp上/test1/ftest2/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/12/14/scp拷贝文件夹遇到的问题/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/12/24/scp命令拷贝虚拟机中内容导致软链失效/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="scp拷贝文件夹遇到的问题 软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。  从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3 是将机器ccp上/test1/ftest2">
-<meta property="og:updated_time" content="2017-12-14T14:45:30.000Z">
+<meta property="og:description" content="scp命令拷贝虚拟机中内容导致软链失效标签（空格分隔）： Linux  在此处软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3是将机器ccp上/test1/ftest2/">
+<meta property="og:updated_time" content="2017-12-24T12:04:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="scp拷贝文件夹遇到的问题 软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。  从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3 是将机器ccp上/test1/ftest2">
+<meta name="twitter:description" content="scp命令拷贝虚拟机中内容导致软链失效标签（空格分隔）： Linux  在此处软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3是将机器ccp上/test1/ftest2/">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -63,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-scp拷贝文件夹遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-scp命令拷贝虚拟机中内容导致软链失效" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/14/scp拷贝文件夹遇到的问题/" class="article-date">
-  <time datetime="2017-12-14T14:48:19.262Z" itemprop="datePublished">2017-12-14</time>
+    <a href="/2017/12/24/scp命令拷贝虚拟机中内容导致软链失效/" class="article-date">
+  <time datetime="2017-12-24T14:27:51.779Z" itemprop="datePublished">2017-12-24</time>
 </a>
     
   </div>
@@ -75,14 +75,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>                       scp拷贝文件夹遇到的问题
-软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。
-</code></pre><p> 从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3 是将机器ccp上/test1/ftest2/目录下的所有文件（包括目录）拷贝到本地当前目录下的test3目录中，但是需要注意的一点是，如果拷贝的文件夹中含有软链，那么用这个命令就会使得拷贝得来的软链无法使用，因为在用此命令拷贝的过程中，无法识别出软链，而是直接读取之后进行拷贝。<br> 解决此问题可以换用另外一种命令进行拷贝，即rsync命令，加上-l参数可以实现只拷贝软连接。</p>
+        <h1 id="scp命令拷贝虚拟机中内容导致软链失效"><a href="#scp命令拷贝虚拟机中内容导致软链失效" class="headerlink" title="scp命令拷贝虚拟机中内容导致软链失效"></a>scp命令拷贝虚拟机中内容导致软链失效</h1><p>标签（空格分隔）： Linux</p>
+<hr>
+<p>在此处软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件，用ln -s 命令可以生成一个软连接。<br>从其他虚拟机拷贝文件夹一般常用的是scp命令，例如：scp -r george@ccq:/test1/ftest2/*  ./test3<br>是将机器ccp上/test1/ftest2/目录下的所有文件（包括目录）拷贝到本地当前目录下的test3目录中，但是需要注意的一点是，如果拷贝的文件夹中含有软链，那么用这个命令就会使得拷贝得来的软链无法使用，因为在用此命令拷贝的过程中，无法识别出软链，而是直接读取之后进行拷贝。<br>解决此问题可以换用另外一种命令进行拷贝，即rsync命令，加上-l参数可以实现只拷贝软连接。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/scp拷贝文件夹遇到的问题/" data-id="cjb6lnpz80000o8uplgp76u07" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/24/scp命令拷贝虚拟机中内容导致软链失效/" data-id="cjbkvbxif0000nwuphrq6ptvm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -91,7 +91,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/12/14/搭博客遇到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/24/搭博客遇到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -135,11 +135,11 @@
       <ul>
         
           <li>
-            <a href="/2017/12/14/搭博客遇到的问题/">(no title)</a>
+            <a href="/2017/12/24/搭博客遇到的问题/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2017/12/14/scp拷贝文件夹遇到的问题/">(no title)</a>
+            <a href="/2017/12/24/scp命令拷贝虚拟机中内容导致软链失效/">(no title)</a>
           </li>
         
       </ul>
